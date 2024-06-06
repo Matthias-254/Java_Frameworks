@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Article</title>
+    <link rel="stylesheet" th:href="@{main.css}">
+</head>
+<body>
+    <div th:replace="~{components::header}"></div>
+    <form>
+        <label>
+            <span th:text="#{label.title} + ': '"></span>
+            <input type="text">
+        </label>
+        <label>
+            <span th:text="#{label.content} + ': '"></span>
+            <textarea></textarea>
+        </label>
+        <input type="submit">
+    </form>
+    <div th:replace="~{components::footer}"></div>
+</body>
+</html>
