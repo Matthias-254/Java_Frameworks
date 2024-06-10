@@ -9,7 +9,7 @@
     <header th:replace="~{components::header}"></header>
     <h1 class="hoofding">De Gazet van Anderlecht heet u welkom.</h1>
     <h2 class="ondertekst">Laatste nieuws:</h2>
-    <div id="news-container" th:unless="${TopNews.isEmpty()}">
+    <div class="news-container" th:unless="${TopNews.isEmpty()}">
             <div th:each="n : ${TopNews}" class="news">
                 <h3 th:text="${n.naam}"></h3>
                 <p th:text="'Geschreven door: ' + ${n.reporterNaam}"></p>

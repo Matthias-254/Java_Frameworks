@@ -2,18 +2,18 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Article Details</title>
+    <title>Artikel Detail</title>
     <link rel="stylesheet" th:href="@{main.css}">
 </head>
 <body>
     <header th:replace="~{components::header}"></header>
-    <h2>Article Details</h2>
-    <div th:if="${news}">
-        <h3 th:text="${news.naam}"></h3>
-        <p th:text="${news.categorie}"></p>
-        <p th:text="${news.inhoud}"></p>
-        <p th:text="${news.reporterNaam}"></p>
-        <p th:text="${news.reporterEmail}"></p>
+    <h1 class="hoofding">Lees hier meer over het Artikel:</h1>
+    <div th:if="${news}" class="news-container">
+        <h2 th:text="${news.naam}" class="ondertekst"></h2>
+        <p th:text="#{label.category} + ': ' + ${news.categorie}" class="news"></p>
+        <h3 th:text="${news.inhoud}" class="news"></h3>
+        <p th:text="#{label.reporterName} + ': ' + ${news.reporterNaam}" class="news"></p>
+        <p th:text="#{label.reporterEmail} + ': ' + ${news.reporterEmail}" class="news"></p>
     </div>
     <div th:unless="${news}">
         <p>Article not found.</p>

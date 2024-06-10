@@ -42,7 +42,7 @@ a{
     text-align: center;
 }
 
-#news-container{
+.news-container{
     width: 80%;
     margin: 0 auto;
 }
