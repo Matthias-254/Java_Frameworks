@@ -7,22 +7,21 @@
 </head>
 <body>
     <header th:replace="~{components::header}"></header>
-    <h1 id="hoofding">De Gatez van Anderlecht heet u welkom.</h1>
-    <h2>Laatste nieuws:</h2>
+    <h1 class="hoofding">De Gazet van Anderlecht heet u welkom.</h1>
+    <h2 class="ondertekst">Laatste nieuws:</h2>
     <div id="news-container" th:unless="${TopNews.isEmpty()}">
-        <h2>News:</h2>
-            <div th:each="n : ${TopNews}">
+            <div th:each="n : ${TopNews}" class="news">
                 <h3 th:text="${n.naam}"></h3>
-                <p th:text="${n.reporterNaam}"></p>
+                <p th:text="'Geschreven door: ' + ${n.reporterNaam}"></p>
                 <a th:href="@{/details/{id}(id=${n.id})}">
-                    <button>Details</button>
+                    <button id="news-button">Details</button>
                 </a>
             </div>
     </div>
     <div id="Empty-news-container" th:if="${TopNews.isEmpty()}">
-        <h2>No news found.</h2>
+            <h2 class="ondertekst">Nog geen nieuws.</h2>
     </div>
-    <button><a th:href="@{/new}">New article</a></button>
+    <button id="nieuw-button"><a th:href="@{/new}">Nieuw artikel maken</a></button>
     <footer th:replace="~{components::footer}"></footer>
 </body>
 </html>

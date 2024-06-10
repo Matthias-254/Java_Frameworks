@@ -7,30 +7,30 @@
 </head>
 <body>
     <header th:replace="~{components::header}"></header>
-    <h2>Maak nieuw artikel</h2>
-    <form method="POST" th:action="@{/new}" th:object="${NewsForForm}">
+    <h2 class="hoofding">Maak een nieuw artikel:</h2>
+    <form method="POST" th:action="@{/new}" th:object="${NewsForForm}" id="form">
         <label>
-            <span th:text="#{label.name} + ': '"></span>
+            <span th:text="#{label.name} + ': '"></span><br>
             <input type="text" th:field="*{naam}">
         </label><br>
         <span th:if="${#fields.hasErrors('naam')}" th:text="${#fields.errors('naam')}" class="error"></span><br>
         <label>
-            <span th:text="#{label.category} + ': '"></span>
+            <span th:text="#{label.category} + ': '"></span><br>
             <input type="text" th:field="*{categorie}">
         </label><br>
         <span th:if="${#fields.hasErrors('categorie')}" th:text="${#fields.errors('categorie')}" class="error"></span><br>
         <label>
-            <span th:text="#{label.content} + ': '"></span>
-            <input type="text" th:field="*{inhoud}">
+            <span th:text="#{label.content} + ': '"></span><br>
+            <textarea type="text" th:field="*{inhoud}"></textarea>
         </label><br>
         <span th:if="${#fields.hasErrors('inhoud')}" th:text="${#fields.errors('inhoud')}" class="error"></span><br>
         <label>
-            <span th:text="#{label.reporterName} + ': '"></span>
+            <span th:text="#{label.reporterName} + ': '"></span><br>
             <input type="text" th:field="*{reporterNaam}">
         </label><br>
         <span th:if="${#fields.hasErrors('reporterNaam')}" th:text="${#fields.errors('reporterNaam')}" class="error"></span><br>
         <label>
-            <span th:text="#{label.reporterEmail} + ': '"></span>
+            <span th:text="#{label.reporterEmail} + ': '"></span><br>
             <input type="text" th:field="*{reporterEmail}">
         </label><br>
         <span th:if="${#fields.hasErrors('reporterEmail')}" th:text="${#fields.errors('reporterEmail')}" class="error"></span><br>
