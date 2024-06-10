@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Create Article</title>
@@ -7,15 +7,33 @@
 </head>
 <body>
     <div th:replace="~{components::header}"></div>
-    <form>
+    <h2>Maak nieuw artikel</h2>
+    <form method="POST" th:action="@{/new}" th:object="${NewsForForm}">
         <label>
-            <span th:text="#{label.title} + ': '"></span>
-            <input type="text">
-        </label>
+            <span th:text="#{label.name} + ': '"></span>
+            <input type="text" th:field="*{naam}">
+        </label><br>
+        <span th:if="${#fields.hasErrors('naam')}" th:text="${#fields.errors('naam')}" class="error"></span><br>
+        <label>
+            <span th:text="#{label.category} + ': '"></span>
+            <input type="text" th:field="*{categorie}">
+        </label><br>
+        <span th:if="${#fields.hasErrors('categorie')}" th:text="${#fields.errors('categorie')}" class="error"></span><br>
         <label>
             <span th:text="#{label.content} + ': '"></span>
-            <textarea></textarea>
-        </label>
+            <input type="text" th:field="*{inhoud}">
+        </label><br>
+        <span th:if="${#fields.hasErrors('inhoud')}" th:text="${#fields.errors('inhoud')}" class="error"></span><br>
+        <label>
+            <span th:text="#{label.reporterName} + ': '"></span>
+            <input type="text" th:field="*{reporterNaam}">
+        </label><br>
+        <span th:if="${#fields.hasErrors('reporterNaam')}" th:text="${#fields.errors('reporterNaam')}" class="error"></span><br>
+        <label>
+            <span th:text="#{label.reporterEmail} + ': '"></span>
+            <input type="text" th:field="*{reporterEmail}">
+        </label><br>
+        <span th:if="${#fields.hasErrors('reporterEmail')}" th:text="${#fields.errors('reporterEmail')}" class="error"></span><br>
         <input type="submit">
     </form>
     <div th:replace="~{components::footer}"></div>

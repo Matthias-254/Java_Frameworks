@@ -1,6 +1,7 @@
 package be.ehb.matthias_lannoo.model.tables;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
 import java.util.ArrayList;
@@ -13,13 +14,13 @@ public class News {
     private int id;
     @NotBlank
     private String naam;
-    @NotBlank
     private String categorie;
     @NotBlank
     private String inhoud;
-
-    @OneToMany(mappedBy = "news")
-    private List<Reporter> reporters = new ArrayList<>();
+    @NotBlank
+    private String reporterNaam;
+    @Email
+    private String reporterEmail;
 
     public News() {
     }
@@ -40,11 +41,11 @@ public class News {
         this.naam = naam;
     }
 
-    public @NotBlank String getCategorie() {
+    public String getCategorie() {
         return categorie;
     }
 
-    public void setCategorie(@NotBlank String categorie) {
+    public void setCategorie(String categorie) {
         this.categorie = categorie;
     }
 
@@ -54,5 +55,21 @@ public class News {
 
     public void setInhoud(@NotBlank String inhoud) {
         this.inhoud = inhoud;
+    }
+
+    public @NotBlank String getReporterNaam() {
+        return reporterNaam;
+    }
+
+    public void setReporterNaam(@NotBlank String reporterNaam) {
+        this.reporterNaam = reporterNaam;
+    }
+
+    public @Email String getReporterEmail() {
+        return reporterEmail;
+    }
+
+    public void setReporterEmail(@Email String reporterEmail) {
+        this.reporterEmail = reporterEmail;
     }
 }

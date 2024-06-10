@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>News</title>
@@ -9,6 +9,21 @@
     <div th:replace="~{components::header}"></div>
     <h1>Hello</h1>
     <button><a th:href="@{/new}">New article</a></button>
+    <div id="news-container" th:unless="${TopNews.isEmpty()}">
+        <h2>News:</h2>
+        <ul>
+            <li th:each="n : ${TopNews}">
+                <span th:text="${n.naam}"></span>
+                <span th:text="${n.categorie}"></span>
+                <span th:text="${n.inhoud}"></span>
+                <span th:text="${n.reporterNaam}"></span>
+                <span th:text="${n.reporterEmail}"></span>
+            </li>
+        </ul>
+    </div>
+    <div id="Empty-news-container" th:if="${TopNews.isEmpty()}">
+        <h2>No news found.</h2>
+    </div>
     <div th:replace="~{components::footer}"></div>
 </body>
 </html>
