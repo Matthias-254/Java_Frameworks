@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Article Details</title>
+    <link rel="stylesheet" th:href="@{main.css}">
+</head>
+<body>
+    <header th:replace="~{components::header}"></header>
+    <h2>Article Details</h2>
+    <div th:if="${news}">
+        <h3 th:text="${news.naam}"></h3>
+        <p th:text="${news.categorie}"></p>
+        <p th:text="${news.inhoud}"></p>
+        <p th:text="${news.reporterNaam}"></p>
+        <p th:text="${news.reporterEmail}"></p>
+    </div>
+    <div th:unless="${news}">
+        <p>Article not found.</p>
+    </div>
+
+    <footer th:replace="~{components::footer}"></footer>
+</body>
+</html>

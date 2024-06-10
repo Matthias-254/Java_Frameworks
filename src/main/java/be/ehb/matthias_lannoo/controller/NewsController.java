@@ -1,14 +1,18 @@
 package be.ehb.matthias_lannoo.controller;
 
-import be.ehb.matthias_lannoo.model.dao.NewsDAO;
-import be.ehb.matthias_lannoo.model.tables.News;
+import be.ehb.matthias_lannoo.model.NewsDAO;
+import be.ehb.matthias_lannoo.model.News;
+import org.springframework.ui.Model;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.Optional;
 
 @Controller
 public class NewsController {
@@ -48,6 +52,18 @@ public class NewsController {
         newsDAO.save(toSave);
         return "redirect:/index";
     }
+
+    @GetMapping("/details/{id}")
+    public String getDetails(@PathVariable("id") int id, Model model) {
+        Optional<News> found = newsDAO.findById(id);
+        if (found.isPresent()) {
+            model.addAttribute("news", found.get());
+            return "detail";
+        }
+        return "redirect:/index";
+    }
+
+
 
     @GetMapping("/about")
     public String getAbout(){

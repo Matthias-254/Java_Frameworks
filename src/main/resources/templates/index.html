@@ -6,23 +6,23 @@
     <link rel="stylesheet" th:href="@{main.css}">
 </head>
 <body>
-    <div th:replace="~{components::header}"></div>
-    <h1>Hello</h1>
-    <button><a th:href="@{/new}">New article</a></button>
+    <header th:replace="~{components::header}"></header>
+    <h1 id="hoofding">De Gatez van Anderlecht heet u welkom.</h1>
+    <h2>Laatste nieuws:</h2>
     <div id="news-container" th:unless="${TopNews.isEmpty()}">
         <h2>News:</h2>
             <div th:each="n : ${TopNews}">
-
-                    <h3 th:text="${n.naam}"></h3>
-                    <p th:text="#{label.category} + ${n.categorie}"></p>
-                    <h4 th:text="${n.inhoud}"></h4>
-                    <span th:text="${n.reporterNaam}"></span>
-                    <span th:text="${n.reporterEmail}"></span>
+                <h3 th:text="${n.naam}"></h3>
+                <p th:text="${n.reporterNaam}"></p>
+                <a th:href="@{/details/{id}(id=${n.id})}">
+                    <button>Details</button>
+                </a>
             </div>
     </div>
     <div id="Empty-news-container" th:if="${TopNews.isEmpty()}">
         <h2>No news found.</h2>
     </div>
-    <div th:replace="~{components::footer}"></div>
+    <button><a th:href="@{/new}">New article</a></button>
+    <footer th:replace="~{components::footer}"></footer>
 </body>
 </html>

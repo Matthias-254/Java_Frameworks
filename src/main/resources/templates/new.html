@@ -6,7 +6,7 @@
     <link rel="stylesheet" th:href="@{main.css}">
 </head>
 <body>
-    <div th:replace="~{components::header}"></div>
+    <header th:replace="~{components::header}"></header>
     <h2>Maak nieuw artikel</h2>
     <form method="POST" th:action="@{/new}" th:object="${NewsForForm}">
         <label>
@@ -36,6 +36,6 @@
         <span th:if="${#fields.hasErrors('reporterEmail')}" th:text="${#fields.errors('reporterEmail')}" class="error"></span><br>
         <input type="submit">
     </form>
-    <div th:replace="~{components::footer}"></div>
+    <footer th:replace="~{components::footer}"></footer>
 </body>
 </html>

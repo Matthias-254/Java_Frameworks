@@ -25,6 +25,15 @@ a{
     text-decoration: none;
 }
 
+#hoofding{
+    font-size: 2rem;
+    font-family: "Comic Sans MS";
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: purple;
+    text-align: center;
+}
+
 .error{
     color: red;
     font-family: "Comic Sans MS";

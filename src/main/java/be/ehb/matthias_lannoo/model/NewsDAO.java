@@ -1,6 +1,5 @@
-package be.ehb.matthias_lannoo.model.dao;
+package be.ehb.matthias_lannoo.model;
 
-import be.ehb.matthias_lannoo.model.tables.News;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
