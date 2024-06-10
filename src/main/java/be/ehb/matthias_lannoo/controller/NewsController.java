@@ -40,7 +40,7 @@ public class NewsController {
         return "new";
     }
 
-    @PostMapping
+    @PostMapping("/new")
     public String postForm(@ModelAttribute("NewsForForm")@Valid News toSave, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return"/new";

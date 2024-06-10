@@ -11,15 +11,14 @@
     <button><a th:href="@{/new}">New article</a></button>
     <div id="news-container" th:unless="${TopNews.isEmpty()}">
         <h2>News:</h2>
-        <ul>
-            <li th:each="n : ${TopNews}">
-                <span th:text="${n.naam}"></span>
-                <span th:text="${n.categorie}"></span>
-                <span th:text="${n.inhoud}"></span>
-                <span th:text="${n.reporterNaam}"></span>
-                <span th:text="${n.reporterEmail}"></span>
-            </li>
-        </ul>
+            <div th:each="n : ${TopNews}">
+
+                    <h3 th:text="${n.naam}"></h3>
+                    <p th:text="#{label.category} + ${n.categorie}"></p>
+                    <h4 th:text="${n.inhoud}"></h4>
+                    <span th:text="${n.reporterNaam}"></span>
+                    <span th:text="${n.reporterEmail}"></span>
+            </div>
     </div>
     <div id="Empty-news-container" th:if="${TopNews.isEmpty()}">
         <h2>No news found.</h2>
