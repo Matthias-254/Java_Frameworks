@@ -13,6 +13,7 @@ public class News {
     private String naam;
     private String categorie;
     @NotBlank
+    @Column(nullable = false, length = 1000)
     private String inhoud;
     @NotBlank
     private String reporterNaam;
